@@ -9,9 +9,12 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-
+    timeout-minutes: 2
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build
         run: make
+      - name: test
+        run: |
+          ping -6 -c 1 mill.growse.com
